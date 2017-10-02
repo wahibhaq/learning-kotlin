@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView
 import com.wahib.learnkotlin.learningkotlin.Adapter.ForecastListAdapter
 import com.wahib.learnkotlin.learningkotlin.util.Helper
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.find
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,9 +24,10 @@ class MainActivity : AppCompatActivity() {
         inputPassword.setText(Helper.turnToStars())
         Helper.niceToast(this, "sample toast")
 
-        val forecastList = findViewById<RecyclerView>(R.id.forecast_list)
+        val forecastList: RecyclerView = find(R.id.forecast_list)
         forecastList.layoutManager = LinearLayoutManager(this)
         forecastList.adapter = ForecastListAdapter(items)
+
     }
 
 
