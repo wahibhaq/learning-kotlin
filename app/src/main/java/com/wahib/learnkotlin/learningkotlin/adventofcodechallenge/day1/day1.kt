@@ -22,10 +22,8 @@ class Day1Challenge {
                     ?.filter { s: String -> !s.equals("") }
                     ?.map { s -> s.trim().replace(",", "") }
                     ?.forEach { item: String -> numList.add(item.toInt())}
-
-            numList.add(numList.first())
-
-            return Observable.fromIterable(numList)
+            
+            return Observable.fromIterable(numList + numList.first())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .buffer(2, 1)
