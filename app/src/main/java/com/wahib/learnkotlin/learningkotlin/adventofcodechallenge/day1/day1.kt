@@ -31,6 +31,29 @@ class Day1Challenge {
 
         }
 
+        fun part2(context: Context?): Observable<MutableList<Int>>? {
+
+            val inputString = context?.assets?.open("input.txt")?.bufferedReader().use {
+                it?.readText()?.split("")
+            }
+
+            val numList: MutableList<Int> = ArrayList<Int>()
+            inputString
+                    ?.filter { s: String -> !s.equals("") }
+                    ?.map { s -> s.trim().replace(",", "") }
+                    ?.forEach { item: String -> numList.add(item.toInt())}
+
+            val median: Int = numList.size/2
+            val bufferSize: Int = median + 1
+
+            return Observable.fromIterable(numList)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .buffer(bufferSize, 1)
+                    .filter(Predicate { buf -> buf.size == bufferSize && buf.first() == buf.last() })
+
+        }
+
         //copied from reddit and worked fine
         fun solvePart1(context: Context?): Int {
 

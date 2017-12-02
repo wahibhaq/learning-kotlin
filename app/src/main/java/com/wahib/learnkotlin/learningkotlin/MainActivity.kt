@@ -36,13 +36,15 @@ class MainActivity : AppCompatActivity() {
 //        forecastList.adapter = ForecastListAdapter(items)
 
         var output: Int = 0
-        Day1Challenge.part1(applicationContext)?.subscribe(
-                { t -> output += t[0] },
+//        Day1Challenge.part1(applicationContext)?.subscribe(
+//                { t -> output += t[0] },
+//                { Log.e("error", "error")},
+//                { message.text = output.toString()})
+
+        Day1Challenge.part2(applicationContext)?.subscribe(
+                { t -> output += (t.first() + t.last()) },
                 { Log.e("error", "error")},
                 { message.text = output.toString()})
-
-
-//        message.text = Day1Challenge.solvePart1(applicationContext).toString()
 
 
 
