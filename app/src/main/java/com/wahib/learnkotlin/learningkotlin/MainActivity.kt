@@ -10,6 +10,7 @@ import com.wahib.learnkotlin.learningkotlin.Adapter.ForecastListAdapter
 import com.wahib.learnkotlin.learningkotlin.adventofcodechallenge.day1.Day1Challenge
 import com.wahib.learnkotlin.learningkotlin.adventofcodechallenge.day2.Day2Challenge
 import com.wahib.learnkotlin.learningkotlin.util.Helper
+import io.reactivex.Maybe
 import io.reactivex.Observable
 import io.reactivex.functions.Action
 import io.reactivex.functions.Consumer
@@ -36,14 +37,13 @@ class MainActivity : AppCompatActivity() {
 //        forecastList.layoutManager = LinearLayoutManager(this)
 //        forecastList.adapter = ForecastListAdapter(items)
 
-        var output = 0
-        Day2Challenge.part1(applicationContext)?.subscribe(
-                { t -> output += t },
-                { Log.e("error", "error")},
-                { message.text = output.toString()})
+        var output = ""
+        Day2Challenge.part2(applicationContext)?.subscribe(
+                { t -> output += t.toString() },
+                { Log.e("error", "error") },
+                { message.text = output })
 
     }
-
 
 
 }
