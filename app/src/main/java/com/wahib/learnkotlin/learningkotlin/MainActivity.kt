@@ -3,9 +3,11 @@ package com.wahib.learnkotlin.learningkotlin
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import com.wahib.learnkotlin.learningkotlin.adventofcodechallenge.day2.Day2FromKosta
 import com.wahib.learnkotlin.learningkotlin.adventofcodechallenge.day3.Day3Challenge
 import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
