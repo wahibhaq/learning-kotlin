@@ -14,6 +14,6 @@ class Day5Test {
     fun task1() {
 
         Assert.assertEquals(5,
-                Day5Challenge.solve((File(assetDirPath+"input5.txt").readLines())))
+                Day5Challenge.solve2((File(assetDirPath+"input5.txt").readLines())))
     }
 }
